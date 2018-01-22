@@ -10,16 +10,15 @@ function getAndPrintHTMLChunks() {
 
   https.get(requestOptions, function(response) {
     response.setEncoding('utf8');
-    var chunk = '';
+    var buffer = '';
 
     response.on('data', function(data) {
       // console.log('Chunk Received. Length: ', data.length);
-      console.log(data);
-      chunk += data;
+      buffer += data;
     });
 
     response.on('end', function() {
-      // console.log(chunk);
+      console.log(buffer);
     });
   });
 
